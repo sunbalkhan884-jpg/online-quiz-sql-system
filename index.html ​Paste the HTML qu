@@ -1,0 +1,45 @@
+index.html
+​Paste the HTML qu<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz System</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f9; padding: 20px; }
+        .quiz-container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        button { background: #0070f3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .options { text-align: left; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Online Quiz System</h2>
+        <hr>
+        <p style="font-size: 18px; color: red;">Timer: <span id="timer">00:30</span></p>
+        
+        <div class="options">
+            <p><strong>Q1: What does SQL stand for?</strong></p>
+            <input type="radio" name="q1" id="a"> <label for="a">A) Structured Query Language</label><br><br>
+            <input type="radio" name="q1" id="b"> <label for="b">B) Simple Query Line</label><br><br>
+            <input type="radio" name="q1" id="c"> <label for="c">C) System Quantum Logic</label>
+        </div>
+        
+        <button onclick="alert('Quiz Submitted Successfully!')">Submit Quiz</button>
+    </div>
+
+    <script>
+        let time = 30;
+        const timerEl = document.getElementById('timer');
+        const countdown = setInterval(() => {
+            if (time > 0) {
+                time--;
+                timerEl.textContent = `00:${time < 10 ? '0' : ''}${time}`;
+            } else {
+                clearInterval(countdown);
+                alert('Time is up! Quiz submitted automatically.');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
